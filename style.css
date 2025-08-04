@@ -1,0 +1,116 @@
+/* Importa a fonte JetBrains Mono do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap');
+
+/* Variáveis CSS para facilitar a manutenção das cores */
+:root {
+    --background-dark: #1e1f2b; /* Um tom escuro para o fundo */
+    --text-light: #f8f8f2;     /* Branco para o texto principal */
+    --purple-accent: #7d40d3; /* Um roxo vibrante para destaque */
+    --purple-light: #e0b4ff;  /* Um roxo mais claro para links */
+    --gray-medium: #6272a4;   /* Um cinza azulado para detalhes secundários */
+}
+
+body {
+    font-family: 'JetBrains Mono', monospace; /* Aplica a fonte principal, com fallback */
+    background-color: var(--background-dark); /* Fundo escuro */
+    color: var(--text-light); /* Cor do texto padrão (branco) */
+    margin: 0;
+    padding: 0;
+    display: flex; /* Para centralizar o conteúdo */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    min-height: 100vh; /* Ocupa a altura total da viewport */
+    text-align: center; /* Centraliza o texto dentro do body */
+}
+
+.container {
+    background-color: #252736; /* Um tom um pouco mais claro que o fundo, para o container */
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Sombra suave */
+    max-width: 600px; /* Largura máxima para o conteúdo */
+    width: 90%; /* Responsividade */
+}
+
+h1 {
+    color: var(--purple-accent); /* Título principal em roxo */
+    font-size: 2.8em;
+    margin-bottom: 20px;
+    font-weight: 700; /* Negrito */
+}
+
+h2 {
+    color: var(--text-light); /* Título secundário em branco */
+    font-size: 1.6em;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-weight: 400; /* Normal */
+}
+
+p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    color: var(--text-light);
+}
+
+a {
+    color: var(--purple-light); /* Links em roxo claro */
+    text-decoration: none; /* Remove o sublinhado padrão */
+    transition: color 0.3s ease; /* Transição suave na cor */
+}
+
+a:hover {
+    color: var(--purple-accent); /* Mude a cor do link ao passar o mouse */
+    text-decoration: underline; /* Adiciona sublinhado ao passar o mouse */
+}
+
+/* Estilo específico para o contador de procrastinação */
+#contadorProcrastinacao {
+    font-size: 1.4em;
+    font-weight: 700; /* Negrito */
+    color: var(--purple-light); /* Contador em roxo claro */
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #1e202c; /* Fundo levemente diferente para o contador */
+    border-radius: 8px;
+    display: inline-block; /* Para que o fundo se ajuste ao conteúdo */
+}
+
+/* Media Queries para Responsividade (ajuste para telas menores) */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.2em;
+    }
+    h2 {
+        font-size: 1.4em;
+    }
+    p {
+        font-size: 1em;
+    }
+    #contadorProcrastinacao {
+        font-size: 1.2em;
+    }
+    .container {
+        padding: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8em;
+    }
+    h2 {
+        font-size: 1.2em;
+    }
+    p {
+        font-size: 0.9em;
+    }
+    #contadorProcrastinacao {
+        font-size: 1em;
+    }
+    .container {
+        padding: 20px;
+        border-radius: 8px;
+    }
+}
