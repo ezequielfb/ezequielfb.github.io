@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0E1116"/>
+      <stop offset="100%" stop-color="#1B2233"/>
+    </linearGradient>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#000" flood-opacity="0.35"/>
+    </filter>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
+    </radialGradient>
+    <style>
+      .t { font-family: 'JetBrains Mono', monospace; fill: #D8DEE9; }
+      .h { fill: #C792EA; font-weight: 700; }
+      .cap { font-weight: 700; fill: rgba(255,255,255,0.9); }
+    </style>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#bg)"/>
+
+  <!-- grade sutil -->
+  <g opacity="0.06" stroke="#FFFFFF">
+    <path d="M0 120h1600M0 240h1600M0 360h1600M0 480h1600M0 600h1600M0 720h1600"/>
+    <path d="M160 0v900M320 0v900M480 0v900M640 0v900M800 0v900M960 0v900M1120 0v900M1280 0v900M1440 0v900"/>
+  </g>
+
+  <!-- título -->
+  <text x="50%" y="90" text-anchor="middle" class="t h" font-size="44">Homelab na Nuvem — Serviços</text>
+  <text x="50%" y="125" text-anchor="middle" class="t" font-size="18" fill="rgba(216,222,233,0.78)">Mosaico de serviços principais do lab</text>
+
+  <!-- mosaico de badges (3 x 2 + linux menor) -->
+  <g font-family="'JetBrains Mono', monospace" text-anchor="middle" fill="#fff" filter="url(#softShadow)">
+    <!-- linha 1 -->
+    <g transform="translate(400,320)">
+      <circle r="120" fill="#2496ED"/>
+      <circle r="140" fill="url(#glow)" opacity="0.08"/>
+      <text y="24" font-size="96" font-weight="800">D</text>
+      <text y="62" font-size="20" class="cap">Docker</text>
+    </g>
+    <g transform="translate(800,320)">
+      <circle r="120" fill="#00AEEF"/>
+      <circle r="140" fill="url(#glow)" opacity="0.08"/>
+      <text y="24" font-size="96" font-weight="800">P</text>
+      <text y="62" font-size="20" class="cap">Portainer</text>
+    </g>
+    <g transform="translate(1200,320)">
+      <circle r="120" fill="#5A4FCF"/>
+      <circle r="140" fill="url(#glow)" opacity="0.08"/>
+      <text y="24" font-size="96" font-weight="800">J</text>
+      <text y="62" font-size="20" class="cap">Jellyfin</text>
+    </g>
+
+    <!-- linha 2 -->
+    <g transform="translate(400,620)">
+      <circle r="120" fill="#F46800"/>
+      <circle r="140" fill="url(#glow)" opacity="0.08"/>
+      <text y="24" font-size="96" font-weight="800">G</text>
+      <text y="62" font-size="20" class="cap">Grafana</text>
+    </g>
+    <g transform="translate(800,620)">
+      <circle r="120" fill="#0078D4"/>
+      <circle r="140" fill="url(#glow)" opacity="0.08"/>
+      <text y="24" font-size="96" font-weight="800">A</text>
+      <text y="62" font-size="20" class="cap">Azure</text>
+    </g>
+    <g transform="translate(1200,620)">
+      <circle r="120" fill="#F80000"/>
+      <circle r="140" fill="url(#glow)" opacity="0.08"/>
+      <text y="24" font-size="96" font-weight="800">O</text>
+      <text y="62" font-size="20" class="cap">Oracle</text>
+    </g>
+
+    <!-- linux menor -->
+  <g transform="translate(200,780)">
+      <circle r="70" fill="#F7DF1E"/>
+      <text y="16" font-size="54" font-weight="800" fill="#0E1116">L</text>
+      <text y="38" font-size="14" fill="rgba(14,17,22,0.9)">Linux</text>
+    </g>
+  </g>
+</svg>

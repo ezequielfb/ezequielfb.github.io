@@ -1,19 +1,469 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ezequiel FB - Em Construção</title>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Portfólio de Ezequiel Barbosa — Estudante de Engenharia de Software, foco em Backend, Nuvem e Docker." />
+    <title>Ezequiel Barbosa — Portfólio</title>
+
+    <!-- Pré-conexão e fonte principal (JetBrains Mono) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <div class="container">
-        <h1>Ezequiel Barbosa</h1>
-        <p>Este site está em construção (tem muito tempo)</p>
-        <p>Enquanto isso, você pode me encontrar no <a href="https://github.com/ezequielfb" target="_blank">GitHub</a>.</p>
-        <h2>Tempo que eu demorei para adquirir um domínio:</h2>
-        <div id="contadorProcrastinacao" style="font-size: 1.2em; font-weight: bold; margin-top: 10px;"></div>
-        </div>
+    <!--
+        Estrutura geral da página (one-page):
+        1) Apresentação (Hero)
+        2) Projetos em Destaque (acordeão exclusivo)
+        3) Meus Serviços
+        4) Minhas Ferramentas
+        5) Sobre Mim
+        6) Contato
+        7) Footer
+    -->
+    <main id="topo">
+        <!-- Seção 1: Apresentação (Hero) -->
+        <section class="hero reveal" aria-labelledby="hero-title">
+            <div class="card hero-card" role="region" aria-label="Cartão de apresentação">
+                <h1 id="hero-title" class="title">Ezequiel Barbosa</h1>
+                <p class="subtitle">Tiro sua ideia do papel, construo e publico.</p>
+                <div class="social">
+                    <a class="icon-link" aria-label="LinkedIn de Ezequiel Barbosa" href="https://www.linkedin.com/in/ezequiel-barbosa-dev/" target="_blank" rel="noopener noreferrer">
+                        <!-- LinkedIn SVG -->
+                        <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true" focusable="false"><path fill="currentColor" d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2ZM8.338 18.338H6.169V10.33h2.169v8.008ZM7.254 9.33a1.257 1.257 0 1 1 0-2.514 1.257 1.257 0 0 1 0 2.514ZM18.338 18.338h-2.168v-3.89c0-.928-.017-2.12-1.291-2.12-1.293 0-1.49 1.01-1.49 2.052v3.958H11.22V10.33h2.081v1.093h.03c.29-.55 1.0-1.13 2.06-1.13 2.205 0 2.946 1.45 2.946 3.334v4.71Z"/></svg>
+                    </a>
+                    <a class="icon-link" aria-label="GitHub de Ezequiel Barbosa" href="https://github.com/ezequielfb" target="_blank" rel="noopener noreferrer">
+                        <!-- GitHub SVG -->
+                        <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 2C6.477 2 2 6.477 2 12a9.998 9.998 0 0 0 6.838 9.488c.5.092.682-.217.682-.483 0-.237-.009-.866-.013-1.7-2.782.604-3.369-1.342-3.369-1.342-.455-1.157-1.11-1.466-1.11-1.466-.908-.62.069-.607.069-.607 1.004.07 1.531 1.031 1.531 1.031.892 1.529 2.341 1.087 2.91.832.091-.647.35-1.087.636-1.337-2.221-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.272.098-2.65 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0 1 12 6.844a9.55 9.55 0 0 1 2.503.337c1.909-1.294 2.748-1.025 2.748-1.025.546 1.378.203 2.397.1 2.65.64.699 1.028 1.592 1.028 2.683 0 3.842-2.337 4.687-4.565 4.936.36.31.68.92.68 1.855 0 1.338-.012 2.417-.012 2.744 0 .268.18.58.688.481A10 10 0 0 0 22 12c0-5.523-4.477-10-10-10Z"/></svg>
+                    </a>
+                </div>
+                <div>
+                    <a id="hero-projects-btn" class="btn hero-cta-btn" href="#projetos" aria-label="Ver seção de projetos">Veja meus projetos</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção 2: Projetos em Destaque (acordeão exclusivo) -->
+        <section id="projetos" class="section reveal" aria-labelledby="projects-title">
+            <div class="container">
+                <h2 id="projects-title" class="section-title">Projetos</h2>
+                <div class="projects-grid">
+                    <!-- Projeto 0 (prioritário): Site Portfólio Pessoal -->
+                    <details class="project-acc card" aria-labelledby="p6-title">
+                        <summary class="project-summary">
+                            <img class="project-thumb" src="assets/portfolio-mock.svg" data-auto-cover="1" alt="Mockup do site portfólio." loading="lazy" />
+                            <div class="summary-main">
+                                <h3 id="p6-title" class="project-title">Site Portfólio Pessoal</h3>
+                                <p class="project-brief">Meu portfólio feito do zero com ajuda de IA, leve e otimizado.</p>
+                                <ul class="tech-list" aria-label="Tecnologias">
+                                    <li>HTML5</li><li>CSS3</li><li>JavaScript</li><li>Git</li><li>Vercel</li>
+                                </ul>
+                            </div>
+                            <svg class="chevron" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M7.41 8.58 12 13.17l4.59-4.59L18 10l-6 6-6-6z"/></svg>
+                        </summary>
+                        <div class="project-details" role="region" aria-labelledby="p6-title">
+                            <div class="project-details-content">
+                                <h4 class="project-subtitle">Construção Deste Portfólio</h4>
+                                <p>Este site, do conceito à publicação, é ao mesmo tempo um projeto prático e um manifesto pessoal sobre
+                                meu lugar como engenheiro de software na era da Inteligência Artificial.</p>
+                                <p>A totalidade do código — HTML, CSS e JavaScript — nasceu de uma colaboração direta com assistentes de IA
+                                de ponta (Gemini&nbsp;2.5&nbsp;Pro, Claude&nbsp;4&nbsp;Sonnet e o preview do GPT‑5). Dito isso, essa colaboração
+                                foi conduzida na contramão do “vibe&nbsp;coding”.</p>
+                                <p>Não terceirizei o raciocínio nem aceitei código sem questionamento, cada bloco começou por prompts detalhados e
+                                seguiu com revisão crítica, refatoração e integração manual.</p>
+                                <p>Tratei a IA como um “pair programmer” sênior, alias, quem melhor para instruir/ajudar alguém se não as maiores e mais sofisticadas ferramentas disponíveis?
+                                Um parceiro de brainstorming incansável que acelera o que é mecânico
+                                e repetitivo é tudo que todos sempre sonhamos em ter, também não negligenciei a arquitetura, a experiência do usuário ou a intenção por trás de cada elemento.</p>
+                                <p>Confesso que me incomoda ver esse potencial ser, às vezes, subutilizado em debates rasos, perde-se a chance de aplicar IA
+                                para resolver problemas genuinamente complexos, otimizar sistemas (até os não "computacionaveis") e — como aqui — ampliar e acelerar o aprendizado humano.</p>
+                                <p>Sem juízo sobre como cada um escolhe usar a ferramenta: IAs existem para muitos propósitos. A minha filosofia é que a verdadeira
+                                revolução não está em pedir que a IA pense por mim, e sim em usá-la para me ajudar a pensar melhor e construir com mais eficiência.</p>
+                                <p>Por fim, este projeto foi um exercício profundo de "engenharia de prompt" (não vou entrar em detalhes do que eu acho desse conceito):
+                                transformar uma visão em instruções claras para um modelo e manter a disciplina de entender, testar e assumir o código como meu.</p>
+                            </div>
+                        </div>
+                    </details>
+                    <!-- Projeto 1: WTFilm (IA + Flask) -->
+                    <details class="project-acc card" aria-labelledby="p1-title">
+                        <summary class="project-summary">
+                            <img class="project-thumb" src="assets/wtfilm/thumb.webp" data-thumb="assets/wtfilm/thumb.webp" data-full="assets/wtfilm/cover.webp" alt="Tela do WTFilm com sinopse gerada por IA e campo de resposta." loading="lazy" width="110" height="72" />
+                            <div class="summary-main">
+                                <h3 id="p1-title" class="project-title">WTFilm — Jogo de Adivinhar Filmes</h3>
+                                <p class="project-brief">Jogo online: adivinhe o filme por sinopses criadas por IA.</p>
+                                <ul class="tech-list" aria-label="Tecnologias">
+                                    <li>Python</li><li>Flask</li><li>HTML5</li><li>CSS3</li><li>JavaScript</li><li>Google Gemini 
+                                    API</li><li>Gunicorn</li><li>Render</li>
+                                </ul>
+                            </div>
+                            <svg class="chevron" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M7.41 8.58 12 13.17l4.59-4.59L18 10l-6 6-6-6z"/></svg>
+                        </summary>
+                        <div class="project-details" role="region" aria-labelledby="p1-title">
+                            <div class="project-details-content">
+                                <h4 class="project-subtitle">Visão Geral</h4>
+                                <p>É um jogo em que você tenta adivinhar o filme a partir de uma sinopse criada por IA.
+                                você pode acessar <a href="https://wtfilm-app.onrender.com/" target="_blank" rel="noopener noreferrer">clicando aqui</a>
+                                (aguarde 60 segundos, é o tempo que a plataforma leva para "ligar" o servidor,
+                                são os males dos planos gratuitos, mas esta em pleno funcionamento)</p>
+                                <p>Eu estava navegando pela internet, quando achei o site 
+                                <a href="https://artigo.app/" target="_blank" rel="noopener noreferrer">artigo.app</a> 
+                                em algum post aleatorio no reddit, e fiquei horas com meus amigos online, tentanto adivinhar palavras,
+                                foi quando eu pensei, "Eu adorei isso, eu acho que eu consigo fazer algo parecido" mas simplesmente
+                                copiar a ideia é algo que iria de contra a minha indole, dai eu fui atrás de fazer o meu proprio 
+                                joguinho para poder me entreter e entreter meus amigos em uma call no discord, mas precisava ser simples
+                                o suficiente para rodar em um navegador, e não tão intrusivo a ponto de ter que instalar algo em um pc ou mais um app de celular,
+                                e já falando em celular, foi com um, em cima de uma toalha, em um "piquenique noturno" em um sabado qualquer (ou era sexta, não lembro direito)
+                                que eu tive a melhor experiência possível com esse joguinho</p>
+                                <h4 class="project-subtitle">Funcionalidades</h4>
+                                <ul>
+                                    <li>Sinopses novas criadas por IA a cada rodada.</li>
+                                    <li>Mistura desafios prontos com descrições novas.</li>
+                                    <li>Você tem 3 tentativas por rodada, sem “game over” final.</li>
+                                    <li>Aceita variações de escrita (maiúsculas, acentos, pontuação e nomes alternativos).</li>
+                                    <li>Indica quando você está perto e permite pedir uma nova descrição.</li>
+                                    <li>Exibe textos formatados com segurança.</li>
+                                    <li>Evita repetição e guarda um histórico recente.</li>
+                                    <li>Funciona bem no celular e no computador; tem testes automáticos.</li>
+                                </ul>
+                                <h4 class="project-subtitle">Tecnologias</h4>
+                                <p>Por trás, uso ferramentas modernas no servidor e no site, além de uma IA para gerar as sinopses
+                                e um serviço de hospedagem para publicar.</p>
+                                <p>
+                                    <a href="https://github.com/ezequielfb/wtfilm-app" target="_blank" rel="noopener noreferrer" aria-label="Projeto completo no GitHub">
+                                        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 2C6.477 2 2 6.477 2 12a9.998 9.998 0 0 0 6.838 9.488c.5.092.682-.217.682-.483 0-.237-.009-.866-.013-1.7-2.782.604-3.369-1.342-3.369-1.342-.455-1.157-1.11-1.466-1.11-1.466-.908-.62.069-.607.069-.607 1.004.07 1.531 1.031 1.531 1.031.892 1.529 2.341 1.087 2.91.832.091-.647.35-1.087.636-1.337-2.221-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.272.098-2.65 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0 1 12 6.844a9.55 9.55 0 0 1 2.503.337c1.909-1.294 2.748-1.025 2.748-1.025.546 1.378.203 2.397.1 2.65.64.699 1.028 1.592 1.028 2.683 0 3.842-2.337 4.687-4.565 4.936.36.31.68.92.68 1.855 0 1.338-.012 2.417-.012 2.744 0 .268.18.58.688.481A10 10 0 0 0 22 12c0-5.523-4.477-10-10-10Z"/></svg>
+                                        Projeto completo
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                    </details>
+
+                    <!-- Projeto 2: Web Scraper de Eventos Sympla -->
+                    <details class="project-acc card" aria-labelledby="p2-title">
+                        <summary class="project-summary">
+                            <img class="project-thumb" src="assets/homelab-mock.svg" data-auto-cover="1" alt="Dashboard web com eventos do Sympla (mockup)." loading="lazy" />
+                            <div class="summary-main">
+                                <h3 id="p2-title" class="project-title">Web Scraper de Eventos Sympla</h3>
+                                <p class="project-brief">Busca eventos no Sympla e mostra tudo em um painel simples.</p>
+                                <ul class="tech-list" aria-label="Tecnologias">
+                                    <li>Python</li><li>Flask</li><li>Jinja2</li><li>PostgreSQL</li><li>Docker</li><li>Docker Compose</li><li>requests</li><li>BeautifulSoup</li>
+                                </ul>
+                            </div>
+                            <svg class="chevron" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M7.41 8.58 12 13.17l4.59-4.59L18 10l-6 6-6-6z"/></svg>
+                        </summary>
+                        <div class="project-details" role="region" aria-labelledby="p2-title">
+                            <div class="project-details-content">
+                                <h4 class="project-subtitle">Visão Geral</h4>
+                                <p>Ferramenta que busca eventos no Sympla, organiza e mostra tudo em um painel simples para explorar.</p>
+                                <p>Navegando por plataformas de freelancers, acabei vendo o anuncio de um projeto que me chamou bastante atenção,
+                                queriam uma aplicação que buscasse eventos do Sympla, filtrasse por tipo e estilo, e mostrasse tudo em uma página fácil de usar,
+                                e eu já passei por uma necessidade um pouco parecida com uma amiga minha, então eu fui lá e desenvolvi essa tal aplicação
+                                que o anuncio pedia... não chegaram a me responder, mas esta aqui, e esta funcional.</p>
+                                <h4 class="project-subtitle">Funcionalidades</h4>
+                                <ul>
+                                    <li>Busca e reúne eventos com base em critérios.</li>
+                                    <li>Classifica por tipo e estilo usando palavras-chave.</li>
+                                    <li>Guarda os dados e exibe em uma página fácil de usar.</li>
+                                    <li>Pode rodar empacotado para facilitar instalação.</li>
+                                    <li>Permite acompanhar registros de execução.</li>
+                                </ul>
+                                <h4 class="project-subtitle">Tecnologias</h4>
+                                <p>Feita em Python com páginas geradas no servidor, consulta os dados do Sympla, grava em banco de dados e pode ser empacotada para rodar com facilidade.</p>
+                                <p>
+                                    <a href="https://github.com/ezequielfb/Web-Scraper-Eventos" target="_blank" rel="noopener noreferrer" aria-label="Projeto completo no GitHub">
+                                        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 2C6.477 2 2 6.477 2 12a9.998 9.998 0 0 0 6.838 9.488c.5.092.682-.217.682-.483 0-.237-.009-.866-.013-1.7-2.782.604-3.369-1.342-3.369-1.342-.455-1.157-1.11-1.466-1.11-1.466-.908-.62.069-.607.069-.607 1.004.07 1.531 1.031 1.531 1.031.892 1.529 2.341 1.087 2.91.832.091-.647.35-1.087.636-1.337-2.221-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.272.098-2.65 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0 1 12 6.844a9.55 9.55 0 0 1 2.503.337c1.909-1.294 2.748-1.025 2.748-1.025.546 1.378.203 2.397.1 2.65.64.699 1.028 1.592 1.028 2.683 0 3.842-2.337 4.687-4.565 4.936.36.31.68.92.68 1.855 0 1.338-.012 2.417-.012 2.744 0 .268.18.58.688.481A10 10 0 0 0 22 12c0-5.523-4.477-10-10-10Z"/></svg>
+                                        Projeto completo
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                    </details>
+
+                    <!-- Projeto 3: Artorias AI (Gemini + Flask) -->
+                    <details class="project-acc card" aria-labelledby="p3-title">
+                        <summary class="project-summary">
+                            <img class="project-thumb" src="assets/portfolio-mock.svg" data-auto-cover="1" alt="Interface do Artorias AI (mockup)." loading="lazy" />
+                            <div class="summary-main">
+                                <h3 id="p3-title" class="project-title">Artorias AI — Agente Conversacional</h3>
+                                <p class="project-brief">Assistente virtual no navegador; base para criar bots sob medida.</p>
+                                <ul class="tech-list" aria-label="Tecnologias">
+                                    <li>Python</li><li>Flask</li><li>Google Gemini API</li><li>HTML/CSS</li><li>GitHub Pages</li>
+                                </ul>
+                            </div>
+                            <svg class="chevron" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M7.41 8.58 12 13.17l4.59-4.59L18 10l-6 6-6-6z"/></svg>
+                        </summary>
+                        <div class="project-details" role="region" aria-labelledby="p3-title">
+                            <div class="project-details-content">
+                                <h4 class="project-subtitle">Visão Geral</h4>
+                                <p>Assistente virtual simples que conversa no navegador usando uma IA de texto, serve de base para 
+                                criar bots sob medida, você pode acessar a demo
+                                <a href="https://ezequielfb.github.io/Artorias-AI/" target="_blank" rel="noopener noreferrer">clicando aqui</a>.</p>
+                                <p>Esse foi por conta de uma ideia que um amigo meu veio me sugerir,
+                                "e se a gente fizesse um bot pra atender os estabelecimentos aqui de (insira o nome do seu bairro)" Pois bem,
+                                o "a gente" virou só eu, mas tudo bem, meu amigo tinha outras prioridades, mas o lado bom é que esta funcional,
+                                só esperando por um lugar para ser implementado (a versão de teste dele, ele atende por uma empresa
+                                ficticia chamada "tralhotec" que oferece serviços em nuvem)</p>
+                                <h4 class="project-subtitle">Funcionalidades</h4>
+                                <ul>
+                                    <li>Página simples para enviar e receber mensagens.</li>
+                                    <li>Respostas geradas por IA.</li>
+                                    <li>Base para crescer com canais e personalidades diferentes.</li>
+                                </ul>
+                                <h4 class="project-subtitle">Tecnologias</h4>
+                                <p>Feito em Python com páginas web e integração com IA; há uma demo publicada para testar.</p>
+                                <p>
+                                    <a href="https://github.com/ezequielfb/Artorias-AI" target="_blank" rel="noopener noreferrer" aria-label="Projeto completo no GitHub">
+                                        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 2C6.477 2 2 6.477 2 12a9.998 9.998 0 0 0 6.838 9.488c.5.092.682-.217.682-.483 0-.237-.009-.866-.013-1.7-2.782.604-3.369-1.342-3.369-1.342-.455-1.157-1.11-1.466-1.11-1.466-.908-.62.069-.607.069-.607 1.004.07 1.531 1.031 1.531 1.031.892 1.529 2.341 1.087 2.91.832.091-.647.35-1.087.636-1.337-2.221-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.272.098-2.65 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0 1 12 6.844a9.55 9.55 0 0 1 2.503.337c1.909-1.294 2.748-1.025 2.748-1.025.546 1.378.203 2.397.1 2.65.64.699 1.028 1.592 1.028 2.683 0 3.842-2.337 4.687-4.565 4.936.36.31.68.92.68 1.855 0 1.338-.012 2.417-.012 2.744 0 .268.18.58.688.481A10 10 0 0 0 22 12c0-5.523-4.477-10-10-10Z"/></svg>
+                                        Projeto completo
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                    </details>
+
+                    
+
+                    <!-- Projeto 5: Guia de Referência de Linguagens -->
+                    <details class="project-acc card" aria-labelledby="p5-title">
+                        <summary class="project-summary">
+                            <img class="project-thumb" src="assets/guide-mock.svg" data-auto-cover="1" alt="Página do guia comparativo de linguagens (mockup)." loading="lazy" />
+                            <div class="summary-main">
+                                <h3 id="p5-title" class="project-title">Guia de Referência de Linguagens</h3>
+                                <p class="project-brief">Guia comparativo com exemplos lado a lado e passo a passo de início.</p>
+                                <ul class="tech-list" aria-label="Tecnologias">
+                                    <li>Markdown</li><li>Python</li><li>JavaScript</li><li>C</li><li>C++</li><li>C#</li><li>Ruby</li><li>PHP</li>
+                                </ul>
+                            </div>
+                            <svg class="chevron" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M7.41 8.58 12 13.17l4.59-4.59L18 10l-6 6-6-6z"/></svg>
+                        </summary>
+                        <div class="project-details" role="region" aria-labelledby="p5-title">
+                            <div class="project-details-content">
+                                <h4 class="project-subtitle">Visão Geral</h4>
+                                <p>Guia com exemplos e dicas de início para várias linguagens de programação, foco em praticidade e consulta rápida.</p>
+                                <p>Pois bem, talvez o projeto que eu mais goste, ou mais considere como meu "filho", meu foco é python, mas em meus tempos
+                                de ensino medio, eu brincava com HTML/CSS e javascript, então eu pensei em rever o que eu sabia,
+                                e conincidentemente, C e PHP entraram na minha grade do curso de engenharia de software, então eu fiquei maluco,
+                                "como é que eu vou estudar 4 linguagens de programação diferentes?", mas eu li um trecho muito bom no exelente 
+                                livro "Codigo Limpo" (que você pode encontrar aqui: 
+                                <a href="https://amzn.to/4lvyQOk" target="_blank" rel="noopener noreferrer">https://amzn.to/4lvyQOk</a>)
+                                e tive uma epifania, um engenheiro é alguém que mexe com a egenhosidade de algo, e isso independe de onde ela vem,
+                                um engenheiro da chevrolet, não é especialista em um carro da fiat, mas com certeza ela saberia onde
+                                procurar por problemas x ou y no carro que ele não conhece, e porque não o mesmo em linguagem de programação?
+                                Eu não preciso ser um especialista em C#, mas pelo menos saber como são declaradas as variaveis nessa linguagem,
+                                talvez possa me dar uma noção do problema que algum colega meu possa estar passando, e melhor ainda,
+                                pode me dar propriedade suficiente para explicar para alguém que esta começando nessa área, 
+                                a escolher ou não uma certa linguagem.</p>
+                                <h4 class="project-subtitle">Conteúdo</h4>
+                                <ul>
+                                    <li>Seções para Python, JavaScript, Ruby, PHP, C, C++, C#.</li>
+                                    <li>Quadros comparando formas de fazer a mesma coisa.</li>
+                                    <li>Passos de instalação e primeiros comandos.</li>
+                                </ul>
+                                <p>
+                                    <a href="https://github.com/ezequielfb/Guia-de-linguagens" target="_blank" rel="noopener noreferrer" aria-label="Projeto completo no GitHub">
+                                        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 2C6.477 2 2 6.477 2 12a9.998 9.998 0 0 0 6.838 9.488c.5.092.682-.217.682-.483 0-.237-.009-.866-.013-1.7-2.782.604-3.369-1.342-3.369-1.342-.455-1.157-1.11-1.466-1.11-1.466-.908-.62.069-.607.069-.607 1.004.07 1.531 1.031 1.531 1.031.892 1.529 2.341 1.087 2.91.832.091-.647.35-1.087.636-1.337-2.221-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.272.098-2.65 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0 1 12 6.844a9.55 9.55 0 0 1 2.503.337c1.909-1.294 2.748-1.025 2.748-1.025.546 1.378.203 2.397.1 2.65.64.699 1.028 1.592 1.028 2.683 0 3.842-2.337 4.687-4.565 4.936.36.31.68.92.68 1.855 0 1.338-.012 2.417-.012 2.744 0 .268.18.58.688.481A10 10 0 0 0 22 12c0-5.523-4.477-10-10-10Z"/></svg>
+                                        Projeto completo
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                    </details>
+
+                    <!-- ===== Projetos Originais (mantidos e complementados) ===== -->
+
+                    <!-- Projeto 7 (original): Homelab na Nuvem com Docker -->
+            <details class="project-acc card homelab" aria-labelledby="p7-title">
+                        <summary class="project-summary">
+                            <img class="project-thumb" src="assets/homelab/thumb.svg" data-thumb="assets/homelab/thumb.svg" data-full="assets/homelab/full-badges.svg" alt="Mosaico de serviços do homelab (Docker, Portainer, Jellyfin, Grafana, Azure, Oracle, Linux)." loading="lazy" width="110" height="72" />
+                            <div class="summary-main">
+                                <h3 id="p7-title" class="project-title">Homelab na Nuvem com Docker</h3>
+                                <p class="project-brief">Servidor pessoal na nuvem com mídia e ferramentas, tudo organizado em um painel.</p>
+                                <ul class="tech-list" aria-label="Tecnologias">
+                                    <li>Azure</li><li>Linux</li><li>Docker</li><li>Portainer</li><li>Jellyfin</li><li>Grafana</li>
+                                </ul>
+                            </div>
+                            <svg class="chevron" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M7.41 8.58 12 13.17l4.59-4.59L18 10l-6 6-6-6z"/></svg>
+                        </summary>
+                        <div class="project-details" role="region" aria-labelledby="p7-title">
+                            <div class="project-details-content">
+                                <p>Meu ambiente pessoal na nuvem: organizei filmes, músicas, e serviços do dia a dia, com um painel para 
+                                acompanhar e administrar tudo de maneira simples.</p>
+                                <p>Já tem muitos anos que acompanho canais de tecnologia no youtube, mas mais especificamente estou
+                                falando do canal <a href="https://www.youtube.com/@Diolinux" target="_blank" rel="noopener noreferrer">Diolinux</a> (Recomendo fortemente),
+                                e apesar do canal ter o nome bem sugestivo em relação a linux, é um canal de tecnologias no geral, 
+                                e algumas vezes eu vejo ele trazendo esses tais "homelabs" que nada mais são que, sem querer ser redundante mas já sendo,
+                                laboratorios caseiros, imagine querer tester uma distro linux, onde você faria isso? Uma maquina virtual talvez,
+                                mas todas as camadas de emulação nunca vão nos dar uma noção real do que seria usar esse algo nativamente, 
+                                mas eu estava limitado a ter que gastar com algum computador secundario, 
+                                foi quando eu tive a ideia de testar o que eu posso fazer em serviços em nuvem, 
+                                foi quando eu implementei diversos serviços em VM's da azure e oracle, que nos serviços gratuitos,
+                                já atendem tudo, ou pelo menos grande parte, das coisas que eu gostaria de testar</p>
+                            </div>
+                        </div>
+                    </details>
+
+                    
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção 3: Serviços -->
+        <section id="servicos" class="section reveal" aria-labelledby="services-title">
+            <div class="container">
+                <h2 id="services-title" class="section-title">Meus Serviços</h2>
+                <div class="services-grid">
+                    <article class="service-card card">
+                        <h3 class="service-title">Sites e Sistemas Sob Medida</h3>
+                        <p class="service-text">Crio sites e sistemas fáceis de usar, que funcionam bem no computador e no celular.
+                        Do visual ao funcionamento, entrego tudo pronto para usar.</p>
+                    </article>
+                    <article class="service-card card">
+                        <h3 class="service-title">Coloco e Cuido na Nuvem</h3>
+                        <p class="service-text">Deixo seu sistema online com segurança e estabilidade (Azure/Oracle Cloud). 
+                        Faço atualizações sem parar o serviço e monitoro para ficar sempre disponível.</p>
+                    </article>
+                    <article class="service-card card">
+                        <h3 class="service-title">IA que Ajuda no Dia a Dia</h3>
+                        <p class="service-text">Levo inteligência artificial para o seu produto: assistentes, busca mais esperta e
+                        automações que economizam tempo e dinheiro, sem complicar a experiência.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção 4: Competências (Skills) -->
+        <section id="competencias" class="section reveal" aria-labelledby="skills-title">
+            <div class="container">
+                <h2 id="skills-title" class="section-title">Minhas Ferramentas</h2>
+                <p class="section-text">Um resumo das tecnologias que mais uso no dia a dia.</p>
+                <div class="skills-grid focus-stack">
+                    <div class="skill-group card" role="group" aria-labelledby="foco-title">
+                        <h3 id="foco-title" class="skill-title">Meu foco:</h3>
+                        <ul class="skill-list" aria-label="Stack de foco">
+                            <li class="skill-badge">Python</li>
+                            <li class="skill-badge">JavaScript</li>
+                            <li class="skill-badge">Docker</li>
+                            <li class="skill-badge">Azure</li>
+                            <li class="skill-badge">PostgreSQL</li>
+                            <li class="skill-badge">HTML5/CSS3</li>
+                        </ul>
+                    </div>
+                    <div class="skill-group card" role="group" aria-labelledby="complementos-title">
+                        <h3 id="complementos-title" class="skill-title">Complementos:</h3>
+                        <ul class="skill-list" aria-label="Ferramentas complementares">
+                            <li class="skill-badge">Flask</li>
+                            <li class="skill-badge">Jinja2</li>
+                            <li class="skill-badge">BeautifulSoup</li>
+                            <li class="skill-badge">Gunicorn</li>
+                            <li class="skill-badge">Microsoft Bot Framework</li>
+                            <li class="skill-badge">ngrok</li>
+                            <li class="skill-badge">Render</li>
+                            <li class="skill-badge">Grafana</li>
+                            <li class="skill-badge">Portainer</li>
+                            <li class="skill-badge">Jellyfin</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção 5: Sobre Mim -->
+        <section id="sobre" class="section reveal" aria-labelledby="sobre-title">
+            <div class="container">
+                <h2 id="sobre-title" class="section-title">Sobre Mim</h2>
+                <p class="section-text">Minha jornada no mundo da tecnologia começou muito antes de eu se quer conhecer um computador,
+                meu avô, que era eletricista industrial e nas horas vagas consertava eletrônicos, foi na oficina dele que eu despertei a curiosidade em saber como as coisas funcionam.
+                Aprendi na prática a lógica e funcionamento de um circuito impresso, muitas das vezes mais quebrando do que ajeitando algo, mas acho que é sempre assim que começamos (e eu era criança),
+                essa base no hardware, um dia se solidificou com um curso de eletrotécnica, o que me deu uma perspectiva única sobre a interação entre o físico e o digital, e
+                não muito tempo depois, um curso de TI para abrir de vez as portas do mundo digital para mim.
+                Hoje, como estudante de Engenharia de Software, levo essa mentalidade para o mundo do código.
+                Ainda tenho uma extrema curiosidade de entender como as coisas funcionam por baixo dos panos, seja configurando um ambiente dual-boot com Linux e Windows,
+                ou explorando os detalhes de múltiplas linguagens de programação. </p>
+                <p> Acredito que a melhor forma de aprender algo é enfrentando desafios, e creio que meus projetos são um reflexo dessa filosofia.</p>            
+            </div>
+        </section>
+
+        <!-- Seção 5.1: Habilidades Extras -->
+        <section id="extras" class="section reveal" aria-labelledby="extras-title">
+            <div class="container">
+                <h2 id="extras-title" class="section-title">Habilidades Extras</h2>
+                <p class="section-text">Competências independentes do meu trabalho em software.</p>
+                <div class="extras-grid">
+                    <article class="card service-card">
+                        <h3 class="service-title">Edição de Vídeo</h3>
+                        <ul class="tech-list" aria-label="Para">
+                        </ul>
+                        <ul class="tech-list" aria-label="Ferramentas de vídeo">
+                            <li>DaVinci Resolve</li>
+                            <li>Vegas Pro</li>
+                        </ul>
+                    </article>
+                    <article class="card service-card">
+                        <h3 class="service-title">Design Visual</h3>
+                        <ul class="tech-list" aria-label="Para">
+                        </ul>
+                        <ul class="tech-list" aria-label="Ferramentas de design">
+                            <li>GIMP</li>
+                            <li>Canvas</li>
+                        </ul>
+                    </article>
+                    <article class="card service-card">
+                        <h3 class="service-title">Produção Musical</h3>
+                        <ul class="tech-list" aria-label="Para">
+                        </ul>
+                        <ul class="tech-list" aria-label="Ferramentas de música">
+                            <li>FL Studio</li>
+                            <li>LUNA</li>
+                        </ul>
+                    </article>
+                    <article class="card service-card">
+                        <h3 class="service-title">Eletrotécnica e Reparo</h3>
+                        <ul class="tech-list" aria-label="Para">
+                            <li>Diagnóstico e conserto de PCs e eletrônicos</li>
+                            <li>Solda e substituição de componentes</li>
+                            <li>Teste e medição de circuitos</li>
+                        </ul>
+                    </article>
+                    <article class="card service-card">
+                        <h3 class="service-title">Pacote Office</h3>
+                        <ul class="tech-list" aria-label="Para">
+                            <li>Criação e edição de documentos</li>
+                            <li>Apresentações visuais impactantes</li>
+                            <li>Manipulação de planilhas e dados</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+    <!-- Seção 6: Contato -->
+        <section id="contato" class="section reveal" aria-labelledby="contact-title">
+            <div class="container contact">
+                <h2 id="contact-title" class="section-title">Vamos Conversar</h2>
+                <p class="section-text">Estou sempre aberto a novas oportunidades e colaborações. Sinta-se à vontade para entrar em contato.</p>
+                <div class="contact-actions">
+                    <a class="btn" href="mailto:ezequielfbdev@gmail.com" aria-label="Enviar e-mail para ezequielfbdev@gmail.com">Enviar e-mail</a>
+                    <div class="social">
+                        <a class="icon-link" aria-label="LinkedIn de Ezequiel Barbosa" href="https://www.linkedin.com/in/ezequiel-barbosa-dev/" target="_blank" rel="noopener noreferrer">
+                            <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2ZM8.338 18.338H6.169V10.33h2.169v8.008ZM7.254 9.33a1.257 1.257 0 1 1 0-2.514 1.257 1.257 0 0 1 0 2.514ZM18.338 18.338h-2.168v-3.89c0-.928-.017-2.12-1.291-2.12-1.293 0-1.49 1.01-1.49 2.052v3.958H11.22V10.33h2.081v1.093h.03c.29-.55 1.0-1.13 2.06-1.13 2.205 0 2.946 1.45 2.946 3.334v4.71Z"/></svg>
+                        </a>
+                        <a class="icon-link" aria-label="GitHub de Ezequiel Barbosa" href="https://github.com/ezequielfb" target="_blank" rel="noopener noreferrer">
+                            <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 2C6.477 2 2 6.477 2 12a9.998 9.998 0 0 0 6.838 9.488c.5.092.682-.217.682-.483 0-.237-.009-.866-.013-1.7-2.782.604-3.369-1.342-3.369-1.342-.455-1.157-1.11-1.466-1.11-1.466-.908-.62.069-.607.069-.607 1.004.07 1.531 1.031 1.531 1.031.892 1.529 2.341 1.087 2.91.832.091-.647.35-1.087.636-1.337-2.221-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.272.098-2.65 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0 1 12 6.844a9.55 9.55 0 0 1 2.503.337c1.909-1.294 2.748-1.025 2.748-1.025.546 1.378.203 2.397.1 2.65.64.699 1.028 1.592 1.028 2.683 0 3.842-2.337 4.687-4.565 4.936.36.31.68.92.68 1.855 0 1.338-.012 2.417-.012 2.744 0 .268.18.58.688.481A10 10 0 0 0 22 12c0-5.523-4.477-10-10-10Z"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Seção 7: Footer -->
+    <footer class="footer">
+        <div class="container small">© <span id="year"></span> Ezequiel Barbosa</div>
+    </footer>
+
     <script src="script.js"></script>
 </body>
 </html>

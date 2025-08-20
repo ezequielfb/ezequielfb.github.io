@@ -1,116 +1,167 @@
-/* Importa a fonte JetBrains Mono do Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap');
+/*
+        Estilos principais do portfólio
+        — Identidade visual e layout responsivo
+        Paleta essencial:
+            - Fundo: #23212E
+            - Card: #302D41
+            - Título: #C792EA
+            - Texto: #D8DEE9
+            - Destaque/Links: #82AAFF
+*/
 
-/* Variáveis CSS para facilitar a manutenção das cores */
 :root {
-    --background-dark: #1e1f2b; /* Um tom escuro para o fundo */
-    --text-light: #f8f8f2;     /* Branco para o texto principal */
-    --purple-accent: #7d40d3; /* Um roxo vibrante para destaque */
-    --purple-light: #e0b4ff;  /* Um roxo mais claro para links */
-    --gray-medium: #6272a4;   /* Um cinza azulado para detalhes secundários */
+    --bg: #23212E;
+    --card: #302D41;
+    --title: #C792EA;
+    --text: #D8DEE9;
+    --link: #82AAFF;
+    --muted: #A6ACB8;
+    --outline: rgba(255,255,255,0.08);
+    --shadow: 0 10px 30px rgba(0,0,0,0.35);
+    --radius: 14px;
+    --container: 1100px;
+    --transition: 180ms ease;
 }
 
+/* ===== Base/Reset ===== */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 body {
-    font-family: 'JetBrains Mono', monospace; /* Aplica a fonte principal, com fallback */
-    background-color: var(--background-dark); /* Fundo escuro */
-    color: var(--text-light); /* Cor do texto padrão (branco) */
     margin: 0;
-    padding: 0;
-    display: flex; /* Para centralizar o conteúdo */
-    justify-content: center; /* Centraliza horizontalmente */
-    align-items: center; /* Centraliza verticalmente */
-    min-height: 100vh; /* Ocupa a altura total da viewport */
-    text-align: center; /* Centraliza o texto dentro do body */
-}
-
-.container {
-    background-color: #252736; /* Um tom um pouco mais claro que o fundo, para o container */
-    padding: 40px;
-    border-radius: 12px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Sombra suave */
-    max-width: 600px; /* Largura máxima para o conteúdo */
-    width: 90%; /* Responsividade */
-}
-
-h1 {
-    color: var(--purple-accent); /* Título principal em roxo */
-    font-size: 2.8em;
-    margin-bottom: 20px;
-    font-weight: 700; /* Negrito */
-}
-
-h2 {
-    color: var(--text-light); /* Título secundário em branco */
-    font-size: 1.6em;
-    margin-top: 30px;
-    margin-bottom: 15px;
-    font-weight: 400; /* Normal */
-}
-
-p {
-    font-size: 1.1em;
+    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    background: var(--bg);
+    color: var(--text);
     line-height: 1.6;
-    margin-bottom: 15px;
-    color: var(--text-light);
 }
 
-a {
-    color: var(--purple-light); /* Links em roxo claro */
-    text-decoration: none; /* Remove o sublinhado padrão */
-    transition: color 0.3s ease; /* Transição suave na cor */
+img, svg { display: inline-block; }
+a { color: var(--link); text-decoration: none; transition: color var(--transition), opacity var(--transition); }
+a:hover { color: #9ec4ff; }
+
+.container { width: min(92%, var(--container)); margin-inline: auto; }
+.small { font-size: 0.9rem; color: var(--muted); }
+
+/* ===== Hero ===== */
+.hero { display: grid; place-items: center; min-height: 100vh; padding: 0; }
+.card { background: var(--card); border: 1px solid var(--outline); border-radius: var(--radius); box-shadow: var(--shadow); }
+.hero-card { padding: 42px 28px; text-align: center; }
+.title { color: var(--title); font-size: clamp(2rem, 4vw, 3rem); line-height: 1.1; margin: 0 0 12px; font-weight: 700; }
+.subtitle { margin: 0 auto 18px; max-width: 780px; color: var(--text); opacity: 0.92; font-size: clamp(0.95rem, 1.6vw, 1.1rem); }
+.social { display: flex; gap: 14px; justify-content: center; }
+.icon-link { display: inline-flex; align-items: center; justify-content: center; padding: 10px; color: var(--link); border-radius: 10px; transition: background-color var(--transition), transform var(--transition), color var(--transition); }
+.icon-link:hover { background: rgba(130,170,255,0.08); transform: translateY(-1px); color: #9ec4ff; }
+.hero-cta-btn { margin-top: 16px; opacity: 0; pointer-events: none; transition: opacity 600ms ease, transform 400ms ease; transform: translateY(6px); }
+.hero-cta-btn.show { opacity: 1; pointer-events: auto; transform: translateY(0); }
+
+/* ===== Seções Gerais ===== */
+.section { padding: 72px 0; }
+.section-title { color: var(--title); font-size: clamp(1.4rem, 2.6vw, 2rem); margin: 0 0 22px; }
+.section-text { margin: 0; opacity: 0.95; }
+
+/* Formatação "justificada" para o texto da seção "Sobre Mim" */
+#sobre .section-text {
+    text-align: justify;
+    text-justify: inter-word;
+    hyphens: auto;
 }
 
-a:hover {
-    color: var(--purple-accent); /* Mude a cor do link ao passar o mouse */
-    text-decoration: underline; /* Adiciona sublinhado ao passar o mouse */
+/* Formatação "justificada" para parágrafos nas seções de projetos */
+.project-details-content > p {
+    text-align: justify;
+    text-justify: inter-word;
+    hyphens: auto;
 }
 
-/* Estilo específico para o contador de procrastinação */
-#contadorProcrastinacao {
-    font-size: 1.4em;
-    font-weight: 700; /* Negrito */
-    color: var(--purple-light); /* Contador em roxo claro */
-    margin-top: 20px;
-    padding: 10px;
-    background-color: #1e202c; /* Fundo levemente diferente para o contador */
-    border-radius: 8px;
-    display: inline-block; /* Para que o fundo se ajuste ao conteúdo */
+/* ===== Skills ===== */
+.skills-grid { display: grid; gap: 18px; grid-template-columns: repeat(3, 1fr); }
+.skill-group { padding: 20px; }
+.skill-title { margin: 0 0 12px; font-size: 1.05rem; color: var(--text); opacity: 0.92; }
+.skill-list { list-style: none; display: flex; flex-wrap: wrap; gap: 10px; padding: 0; margin: 0; }
+.skill-badge { background: rgba(216,222,233,0.06); border: 1px solid var(--outline); padding: 8px 10px; border-radius: 10px; font-size: 0.95rem; color: var(--text); transition: transform var(--transition), background var(--transition), border-color var(--transition); }
+.skill-badge:hover { transform: translateY(-1px); background: rgba(216,222,233,0.1); border-color: rgba(255,255,255,0.14); }
+.focus-stack .skill-group { padding: 22px; }
+.focus-stack { grid-template-columns: 1fr; }
+
+/* ===== Projetos (em acordeão) ===== */
+.projects-grid { display: grid; gap: 14px; grid-template-columns: 1fr; }
+.project-acc { overflow: clip; }
+.project-acc { --glow: rgba(199,146,234,0.22); --glowBorder: rgba(199,146,234,0.28); }
+.project-acc[open] .project-summary .chevron { transform: rotate(180deg); }
+.project-summary { list-style: none; display: grid; grid-template-columns: 110px 1fr auto; align-items: start; gap: 14px; padding: 18px; cursor: pointer; transition: padding 240ms cubic-bezier(0.22, 1, 0.36, 1), gap 240ms cubic-bezier(0.22, 1, 0.36, 1), background 240ms ease; contain: layout paint; }
+.project-summary::-webkit-details-marker { display: none; }
+.project-summary:hover { background: rgba(216,222,233,0.04); }
+.project-summary .chevron { margin-top: 4px; color: var(--link); transition: transform 360ms cubic-bezier(0.22, 1, 0.36, 1), color var(--transition); }
+.project-thumb { width: 110px; height: 72px; object-fit: cover; border-radius: 10px; border: 1px solid var(--outline); position: relative; left: 0; transform: translateX(0); transition: width 360ms cubic-bezier(0.22, 1, 0.36, 1), height 360ms cubic-bezier(0.22, 1, 0.36, 1), margin 260ms cubic-bezier(0.22, 1, 0.36, 1), transform 360ms cubic-bezier(0.22, 1, 0.36, 1), left 360ms cubic-bezier(0.22, 1, 0.36, 1); transform-origin: left top; will-change: transform, width, height, left; }
+.summary-main { display: grid; gap: 8px; transition: transform 260ms cubic-bezier(0.22, 1, 0.36, 1), opacity 260ms cubic-bezier(0.22, 1, 0.36, 1); }
+.project-title { margin: 0; font-size: 1.1rem; color: var(--text); }
+.project-brief { margin: 0; opacity: 0.95; }
+.tech-list { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; padding: 0; margin: 0; transition: transform 260ms cubic-bezier(0.22, 1, 0.36, 1), opacity 260ms cubic-bezier(0.22, 1, 0.36, 1); }
+.tech-list li { font-size: 0.9rem; color: var(--muted); background: rgba(216,222,233,0.04); border: 1px solid var(--outline); padding: 6px 8px; border-radius: 8px; }
+.project-details { border-top: 1px solid var(--outline); }
+.project-details-content { padding: 16px 18px 20px; display: grid; gap: 10px; }
+.project-subtitle { margin: 0; color: var(--title); font-size: 1rem; }
+
+/* Ao abrir o acordeão, a imagem cresce e o layout do resumo vira empilhado */
+.project-acc[open] .project-summary { grid-template-columns: 1fr; grid-template-rows: auto auto auto; text-align: center; padding: 22px 18px 20px; gap: 16px; }
+/* Imagem expandida ao abrir */
+.project-acc[open] .project-thumb { width: clamp(220px, 42vw, 520px); height: auto; aspect-ratio: 16/10; margin: 0 0 10px; display: block; left: 50%; transform: translateX(-50%); object-fit: contain; background: rgba(0,0,0,0.06); box-shadow: 0 12px 36px var(--glow); border-color: var(--glowBorder); }
+.project-acc[open] .summary-main { justify-items: center; transform: translateY(2px); }
+.project-acc[open] .tech-list { justify-content: center; transform: translateY(2px); }
+.project-acc[open] .project-summary .chevron { justify-self: center; margin-top: 8px; }
+
+/* Durante o fechamento (classe .closing), manter layout empilhado e 
+    mover/encolher a thumb do centro para a esquerda, espelhando a abertura */
+.project-acc.closing .project-summary { grid-template-columns: 1fr; grid-template-rows: auto auto auto; text-align: center; padding: 18px; gap: 14px; }
+.project-acc.closing .project-thumb { width: 110px; height: 72px; margin: 0 0 10px; left: 0; transform: translateX(0); }
+.project-acc.closing .summary-main { justify-items: start; transform: translateY(0); }
+.project-acc.closing .tech-list { justify-content: flex-start; transform: translateY(0); }
+.project-acc.closing .project-summary .chevron { justify-self: center; margin-top: 8px; transform: rotate(0deg); }
+
+/* Tema sutil para o Homelab */
+.project-acc.homelab { --glow: rgba(199,146,234,0.24); --glowBorder: rgba(199,146,234,0.30); }
+.project-acc.homelab .project-summary:hover { background: rgba(199,146,234,0.06); }
+
+/* Acessibilidade: reduzir movimento quando preferido */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { transition: none !important; animation: none !important; }
 }
 
-/* Media Queries para Responsividade (ajuste para telas menores) */
-@media (max-width: 768px) {
-    h1 {
-        font-size: 2.2em;
-    }
-    h2 {
-        font-size: 1.4em;
-    }
-    p {
-        font-size: 1em;
-    }
-    #contadorProcrastinacao {
-        font-size: 1.2em;
-    }
-    .container {
-        padding: 30px;
-    }
+/* ===== Serviços ===== */
+.services-grid { display: grid; gap: 14px; grid-template-columns: repeat(3, 1fr); }
+.service-card { padding: 18px; }
+.service-title { margin: 0 0 8px; font-size: 1.1rem; color: var(--text); }
+.service-text { margin: 0; opacity: 0.95; }
+
+/* ===== Habilidades Extras ===== */
+.extras-grid { display: grid; gap: 14px; grid-template-columns: repeat(3, 1fr); }
+
+/* ===== Contato ===== */
+.contact { display: grid; gap: 16px; justify-items: start; }
+.contact-actions { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
+.btn { display: inline-block; background: var(--link); color: #0c1020; padding: 10px 14px; border-radius: 10px; font-weight: 600; transition: transform var(--transition), box-shadow var(--transition), background var(--transition), color var(--transition); box-shadow: 0 6px 20px rgba(130,170,255,0.24); }
+.btn:hover { transform: translateY(-1px); background: #9ec4ff; box-shadow: 0 8px 26px rgba(130,170,255,0.3); }
+
+/* ===== Footer ===== */
+.footer { border-top: 1px solid var(--outline); padding: 24px 0; margin-top: 48px; }
+
+/* ===== Efeito de revelação (fade-in on scroll) ===== */
+.reveal { opacity: 0; transform: translateY(12px); transition: opacity 500ms ease, transform 500ms ease; }
+.reveal.in-view { opacity: 1; transform: translateY(0); }
+
+/* ===== Responsividade ===== */
+@media (max-width: 992px) {
+    .skills-grid { grid-template-columns: repeat(2, 1fr); }
+    .services-grid { grid-template-columns: 1fr 1fr; }
+    .extras-grid { grid-template-columns: 1fr 1fr; }
 }
 
-@media (max-width: 480px) {
-    h1 {
-        font-size: 1.8em;
-    }
-    h2 {
-        font-size: 1.2em;
-    }
-    p {
-        font-size: 0.9em;
-    }
-    #contadorProcrastinacao {
-        font-size: 1em;
-    }
-    .container {
-        padding: 20px;
-        border-radius: 8px;
-    }
+@media (max-width: 600px) {
+    .skills-grid { grid-template-columns: 1fr; }
+    .hero { min-height: 85vh; }
+    .hero-card { padding: 32px 22px; }
+    .contact { justify-items: stretch; }
+    .project-summary { grid-template-columns: 84px 1fr auto; }
+    .project-thumb { width: 84px; height: 56px; }
+    .services-grid { grid-template-columns: 1fr; }
+    .extras-grid { grid-template-columns: 1fr; }
 }
